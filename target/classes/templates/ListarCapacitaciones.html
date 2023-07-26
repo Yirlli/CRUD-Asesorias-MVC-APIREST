@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Insert title here</title>
+
+</head>
+
+<body>
+
+	<header>
+
+ 		<div th:replace="Menu"></div>
+
+	</header>
+
+	<h3 class="text-center p-2">Lista de capacitaciones</h3>
+
+    
+
+        <section class="fondo d-flex container-fluid justify-content-center p-5">
+
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+
+                <div class="container-fluid">
+					<table class="table">
+  						<thead>
+   							<tr>
+      							<th scope="col">Id</th>
+      							<th scope="col">Nombre</th>
+      							<th scope="col">Detalle</th>
+      							<th scope="col">Rut del cliente</th>
+      							<th scope="col">Dia</th>
+      							<th scope="col">Hora</th>
+      							<th scope="col">Lugar</th>
+      							<th scope="col">Duracion</th>
+      							<th scope="col">Cantidad de asistentes</th>
+      							<th scope="col">Acciones</th>
+      							
+   							</tr>
+  						</thead>
+  						<tbody>
+    						<tr th:each="capacitacion :${listaCapacitacion}">
+      							<th scope="row" th:text="${capacitacion.id}">Id</th>
+      							<td th:text="${capacitacion.nombre}">Nombre</td>
+     							<td th:text="${capacitacion.detalle}">Detalle</td>
+      							<td th:text="${capacitacion.rutCliente}">Rut del cliente</td>
+      							<td th:text="${capacitacion.dia}">Dia</td>
+      							<td th:text="${capacitacion.hora}">Hora</td>
+      							<td th:text="${capacitacion.lugar}">Lugar</td>
+      							<td th:text="${capacitacion.duracion}">Duracion</td>
+      							<td th:text="${capacitacion.cantidadAsistentes}">Cantidad de asistentes</td>
+      							<td>
+									  <a th:href="@{/ListaCapacitacion/editar/{id}(id=${capacitacion.id})}" class="btn btn-success" >Editar</a>
+								</td>
+      							<td>
+									  <a th:href="@{/ListaCapacitacion/{id}(id=${capacitacion.id})}" class="btn btn-danger" >Eliminar</a>
+								</td>
+      							
+    						</tr>
+    						
+  						</tbody>
+					</table>
+
+                   
+
+					
+
+                </div>
+
+            </div>
+
+        </section>
+
+  
+
+   
+
+	
+
+	<div class="volver d-flex justify-content-center mb-5">
+
+		<a href="Index.jsp">Volver a página de inicio</a>
+
+	</div>
+
+
+
+</body>
+
+</html>

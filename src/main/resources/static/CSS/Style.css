@@ -1,0 +1,228 @@
+@charset "ISO-8859-1";
+
+
+*{
+margin: 0;
+padding: 0;
+}
+/*NAVBAR*/
+.navbar{
+	background-color: rgb(115, 115, 255);
+}
+
+
+/*GENERALES*/
+.fondo{
+background-color: rgb(115, 115, 255);
+
+}
+
+
+/*INDEX*/
+
+
+.fondoMain{
+background-image: url(https://images.unsplash.com/photo-1681142991637-32418d80f55c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80);
+background-size: contain;
+height: 50vh;
+margin-top: 5rem;
+	
+}
+
+.fondoMain h1, h2{
+	text-align: center;
+	padding: 1rem;
+	background-color: rgb(217, 219, 218);
+	
+}
+
+.opciones{
+	background-color: rgb(115, 115, 255);
+}
+/* botones*/
+.opciones .btn {
+	margin-top: 2rem;
+	background-color: rgb(129, 201, 193);
+	width: 30vw;
+	align-self: center;
+}
+
+.infoEmpresa h3{
+	text-align: center;
+	margin-bottom:2rem
+}
+
+
+.infoEmpresa{
+	padding: 2rem;
+}
+
+.opciones .btn a{
+text-decoration: none;
+color:black;
+}
+
+
+/*generales formularios */
+.formCapacitacion{
+	margin-top: 4rem;
+}
+
+
+ body .fondo .volver a{
+text-decoration: none;
+color:black;
+	
+}
+
+form{
+	margin-top: 4rem;
+}
+
+.formCapacitacion form input{
+	width: 30vw;
+}
+
+.formCapacitacion form .nombreConsulta input{
+	width: 30vw;
+}
+
+.fondo .formCapacitacion  form .botones .btn {
+	background-color: rgb(129, 201, 193);
+	margin-right: 5rem;
+	width: 15vw;
+
+}
+
+.formLogin .btn{
+	background-color: rgb(129, 201, 193);
+	margin-top: 2rem;
+	width: 12vw;
+	margin-right: 5rem;
+	margin-bottom: 3rem;
+
+}
+
+
+.form-label{
+font-weight: bold;
+padding: 0.25rem;
+}
+
+/*form tipo usuario*/
+
+form #tipoUsuario{
+	width: 30vw;
+}
+
+
+.tituloContacto{
+	text-align: center
+}
+
+
+a{
+text-decoration: none;
+color:black;
+}
+
+
+
+.tituLogin{text-align: center}
+.cierre .btn{
+	border:none;
+	background-color: rgb(115, 115, 255);
+	margin-top: -1rem;
+}
+
+.fondoUser h3{
+	font-size: 15px;
+}
+
+/*media query*/
+
+
+
+
+
+/* Medium devices (tablets, less than 992px)*/
+@media (max-width: 991.98px) { 
+	
+	.formCapacitacion input{
+	width: 40vw;}
+	
+	.formCapacitacion h1{
+		font-size: 20px;
+	}
+	
+		/*INDEX*/
+
+
+
+ }
+ 
+ /*Small devices (landscape phones, less than 768px)*/
+@media (max-width: 767.98px) {
+	
+	/*Pagina de crear capacitacion*/
+	.formCapacitacion input{
+	width: 50vw;}
+	
+		/*INDEX*/
+	
+}
+
+/* X-Small devices (portrait phones, less than 576px)*/
+@media (max-width: 575.98px) {
+	
+	/*Pagina de crear capacitacion*/
+
+	.formCapacitacion input{
+	width: 67vw;}
+	
+	
+	.formCapacitacion .btn, .verDatosCapacitacion .btn{
+		width: 30vw;
+		margin-right: 0;}
+		
+			/*INDEX*/
+			
+	.fondoMain h1{
+			padding:.35rem;
+			font-size: 20px;
+			width: 100vw;
+		}
+}
+
+@media (max-width: 320px) { 
+	
+	/*Pagina de crear capacitacion*/
+	.formCapacitacion input{
+	width: 80vw;
+	font-size: 12px;}
+	
+	.formCapacitacion label{
+		font-size: 16px;
+	
+	}
+	
+		.formCapacitacion h1{
+		font-size: 25px;
+		text-align: center;
+	}
+
+	.formCapacitacion .btn, .verDatosCapacitacion .btn{
+		width: 40vw;
+		margin-right: 0;}
+		
+		/*INDEX*/
+		.fondoMain h1{
+			padding:.25rem;
+			font-size: 18px;
+		}
+		
+		.opciones .btn{
+			width: 40vw;
+		}
+		
+		

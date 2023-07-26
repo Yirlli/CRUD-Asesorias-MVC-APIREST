@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="CSS/Style.css"/>
+<title>Menu de Capacitaciones</title>
+</head>
+<body>
+	<header>
+ 		<jsp:include page="Menu.jsp" />
+	</header>
+	<section class="fondo d-flex container-fluid vh-100 flex-column">
+		<div class="bg-light-subtle d-flex flex-column justify-content-center align-items-center mt-5 rounded">
+			<h1 class="mt-5">Menu de opciones para Capacitaciones</h1>
+				<div class="d-flex justify-content-center  align-self-center flex-column gap-4 mt-5 mb-5">
+					<button class="btn btn-primary" ><a th:href="@{/CrearCapacitacion}">Crear Capacitacion</a></button>
+					<button class="btn btn-secondary "><a th:href="@{/ListaCapacitacion}">Mostrar lista de Capacitaciones</a></button>
+					<button class="btn btn-secondary"><a th:href="@{/EditarCapacitacion}">Editar Capacitacion</a></button>
+					<button class="btn btn-secondary "><a th:href="@{/EliminarCapacitacion}">Eliminar Capacitacion</a></button>
+				</div>
+		</div>
+		<div class="volver d-flex justify-content-center mt-5 mb-5">
+		<a href="Index.jsp">Volver a página de inicio</a>
+		</div>
+	</section>
+
+</body>
+</html>
