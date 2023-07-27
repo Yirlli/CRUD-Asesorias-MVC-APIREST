@@ -1,26 +1,53 @@
 package com.HandSolo.Asesorias.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
 
-
+@Entity
+@Table(name="Cliente")
+@PrimaryKeyJoinColumn(name = "id")
 public class Cliente extends Usuario {
 
 
-
+	
+	@GeneratedValue (strategy= GenerationType.AUTO)
 	private int cliente_id;
+	
+	@Column(name = "nombres")
 	private String nombres;
+	
+	@Column(name = "apellidos")
 	private String apellidos;
+	
+	@Column(name = "telefono")
 	private String telefono;
+	
+	@Column(name = "Afp")
 	private String afp;
+	
+	@Column(name = "sistema_salud")
 	private String sistemaSalud;
+	
+	@Column(name = "direccion_cliente")
 	private String direccionCliente;
+	
+	@Column(name = "comuna_cliente")
 	private String comunaCliente;
+	
+	@Column(name = "edad")
 	private Integer edad;
 	
+	@OneToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 	public Cliente() {
 	}
 
@@ -30,7 +57,7 @@ public class Cliente extends Usuario {
 
 
 
-	public Cliente(int id, String nombre, String tipo, int cliente_id, String nombres, String apellidos, String telefono, String afp, String sistemaSalud, String direciconCliente, String comunaCliente, Integer edad) {
+	public Cliente(int id, String nombre, String tipo, int cliente_id, String nombres, String apellidos, String telefono, String afp, String sistemaSalud, String direccionCliente, String comunaCliente, Integer edad) {
 		super(id, nombre, tipo);
 		this.cliente_id = cliente_id;
 		this.nombres = nombres;
@@ -43,6 +70,7 @@ public class Cliente extends Usuario {
 		this.edad = edad;
 	}
 
+
 	public int getCliente_id() {
 		return cliente_id;
 	}
@@ -50,6 +78,7 @@ public class Cliente extends Usuario {
 	public void setCliente_id(int cliente_id) {
 		this.cliente_id = cliente_id;
 	}
+
 
 	public String getNombres() {
 		return nombres;
@@ -114,7 +143,15 @@ public class Cliente extends Usuario {
 	public void setEdad(Integer edad) {
 		this.edad = edad;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Cliente [cliente_id=" + cliente_id + ", nombres=" + nombres
+				+ ", apellidos=" + apellidos + ", telefono=" + telefono + ", afp=" + afp + ", sistemaSalud="
+				+ sistemaSalud + ", direccionCliente=" + direccionCliente + ", comunaCliente=" + comunaCliente
+				+ ", edad=" + edad + "]";
+	}
+
 	
 	
 }
