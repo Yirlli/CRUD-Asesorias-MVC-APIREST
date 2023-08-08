@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+	<th:block th:replace="fragment/Header :: head"></th:block>
+
+	<title>Inicio Sesión</title>
+</head>
+<body>
+<section class="fondo d-flex flex-column p-5 vh-100 align-items-center">
+		<section class="formCapacitacion d-fex align-center "> 
+			<h1 class="tituLogin">Inicia sesión</h1>
+			<form  th:action="@{/login}"method="POST" >
+				<div class=" d-flex flex-column align-items-center"> 
+					<div>
+						<label class="form-label">Usuario:</label>
+						<input class="form-control" placeholder="Ingresa el usuario "type="text"name="userLogin">
+					</div>
+					<div>
+						<label class="form-label">Contraseña:</label>
+						<input  class="form-control" type="password"placeholder="Ingrese su contraseña"  name="contraseniaLogin">
+					</div>
+				
+				</div>
+				<div class="d-flex justify-content-center p-2 botones">
+					<button class="btn vw-17"type="submit" id="btnlogin">Enviar</button>
+					<button class="btn vw-17"type="reset">Borrar</button>
+				</div>
+			
+			</form>
+			
+			
+			
+			<div class="volver d-flex justify-content-center">
+				<a th:href="@{/}">Volver a página de inicio</a>
+			</div>
+		</section>
+		
+		
+
+</body>
+</html>

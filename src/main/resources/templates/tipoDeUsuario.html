@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" type="text/css" href="CSS/Style.css"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<title>Crear usuario</title>
+</head>
+<body>
+	<header>
+ 		<div th:replace="Menu"></div>
+	</header>
+	<section class="fondo d-flex  justify-content-center vh-100">
+		<section class="formCapacitacion d-flex flex-column  justify-content-center">
+			<h1>Tipo de usuario seleccionado:</h1>
+			<section class="opciones d-flex flex-column">
+	
+	
+			<button class="btn btnInicio"type="submit"><a  th:href="@{/CrearAdministrativo}">Administrativo</a> </button>
+			<button class="btn btnInicio"type="submit"><a  th:href="@{/CrearProfesional}">Profesional</a> </button>
+			<button class="btn btnInicio"type="submit"><a  th:href="@{/CrearProfesional}">Cliente</a> </button>
+		
+		
+		<button class="btn btnInicio"><a th:href="@{/Contacto}">Solicitar contacto</a></button>
+	</section>
+			
+			
+			
+			<div class="volver mb-5 d-flex justify-content-center">
+				<a href="Index.jsp">Volver a página de inicio</a>
+			</div> 
+			
+	
+		</section>
+		
+	</section>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="JS/formUsuario.js"></script>
+	<script src="JS/validarFormCrearUser.js"></script>
+	-->
+	
+</body>
+</html>

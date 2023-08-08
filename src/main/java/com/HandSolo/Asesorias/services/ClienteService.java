@@ -1,6 +1,6 @@
 package com.HandSolo.Asesorias.services;
 
-import com.HandSolo.Asesorias.domain.Cliente;
+import com.HandSolo.Asesorias.modelo.Cliente;
 
 public interface ClienteService {
 	Iterable<Cliente> listAllCliente();

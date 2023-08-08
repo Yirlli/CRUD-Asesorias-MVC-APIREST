@@ -3,7 +3,7 @@ package com.HandSolo.Asesorias.implementacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.HandSolo.Asesorias.domain.Profesional;
+import com.HandSolo.Asesorias.modelo.Profesional;
 import com.HandSolo.Asesorias.repositories.ProfesionalRepositorio;
 import com.HandSolo.Asesorias.services.ProfesionalService;
 

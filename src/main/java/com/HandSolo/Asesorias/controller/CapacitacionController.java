@@ -1,5 +1,7 @@
 package com.HandSolo.Asesorias.controller;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,9 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-
-import com.HandSolo.Asesorias.domain.Capacitacion;
-
+import com.HandSolo.Asesorias.modelo.Capacitacion;
 import com.HandSolo.Asesorias.services.CapacitacionService;
 
 
@@ -21,9 +21,6 @@ public class CapacitacionController {
 	private CapacitacionService servicio;
 	
 
-	
-	
-	
 	@GetMapping("/CrearCapacitacion")
 	public String CrearCapacitacionForm(Model model) {
 		Capacitacion capacitacion = new Capacitacion();
@@ -49,6 +46,7 @@ public class CapacitacionController {
 		return "EditarCapacitacion";
 	}
 	
+	
 	@PostMapping("/ListaCapacitacion/{id}")
 	public String actualizarCapacitacion(@PathVariable Integer id,@ModelAttribute("capacitacion") Capacitacion capacitacion, Model model){
 		Capacitacion existenteCapacitacion = servicio.getCapacitacionById(id);
@@ -64,11 +62,11 @@ public class CapacitacionController {
 		servicio.updateCapacitacion(existenteCapacitacion);
 		return "redirect/ListaCapacitacion";
 	}
-	
+	  
 	@GetMapping("/ListaCapacitacion/{id}")
 	public String eliminarCapacitacion(@PathVariable Integer id) {
 		servicio.deleteCapacitacion(id);
 		return "redirect:/ListaCapacitacion";
 	}
-
 }
+	

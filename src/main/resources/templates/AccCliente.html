@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:replace="fragment/Header :: head"></th:block>
+<title>Menu CLientes</title>
+</head>
+<body>
+	<header>
+ 		<th:block th:replace="fragment/Menu :: menu"></th:block>
+	</header>
+	<section class="fondo d-flex container-fluid vh-100 flex-column">
+		<div class="bg-light-subtle d-flex flex-column justify-content-center align-items-center mt-5 rounded">
+			<h1 class="mt-5">Menu de opciones para Clientes</h1>
+				<div class="d-flex justify-content-center  align-self-center flex-column gap-4 mt-5 mb-5">
+					<button class="btn btn-primary" ><a th:href="@{/ClienteForm}">Crear Cliente</a></button>
+					<button class="btn btn-secondary "><a th:href="@{/ListarCliente}">Mostrar lista de Clientes</a></button>
+					<button class="btn btn-secondary"><a th:href="@{/EditarCliente}">Editar Clientes</a></button>
+					<button class="btn btn-secondary "><a th:href="@{/EliminarCliente}">Eliminar Clientes</a></button>
+				</div>
+		</div>
+		<div class="volver d-flex justify-content-center mt-5 mb-5">
+		<a th:href="@{/}">Volver a página de inicio</a>
+		</div>
+	</section>
+
+</body>
+</html>

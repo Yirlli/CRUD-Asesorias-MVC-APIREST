@@ -1,6 +1,6 @@
 package com.HandSolo.Asesorias.services;
 
-import com.HandSolo.Asesorias.domain.Profesional;
+import com.HandSolo.Asesorias.modelo.Profesional;
 
 public interface ProfesionalService {
 

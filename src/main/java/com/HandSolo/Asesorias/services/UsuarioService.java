@@ -1,9 +1,12 @@
 package com.HandSolo.Asesorias.services;
 
-import com.HandSolo.Asesorias.domain.Usuario;
+
+import java.util.Optional;
+
+import com.HandSolo.Asesorias.modelo.Usuario;
 
 public interface UsuarioService {
-	
+
 	Iterable<Usuario> listAllUsuario();
 
 	Usuario getUsuarioById(Integer id);
@@ -14,5 +17,7 @@ public interface UsuarioService {
 	Usuario updateUsuario(Usuario usuario);
 	
 	public void deleteUsuario(Integer id);
+	
+	Optional<Usuario> findByRut(String rut);
 
 }

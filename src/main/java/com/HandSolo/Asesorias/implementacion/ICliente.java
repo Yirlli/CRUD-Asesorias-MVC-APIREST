@@ -3,7 +3,7 @@ package com.HandSolo.Asesorias.implementacion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.HandSolo.Asesorias.domain.Cliente;
+import com.HandSolo.Asesorias.modelo.Cliente;
 import com.HandSolo.Asesorias.repositories.ClienteRepositorio;
 import com.HandSolo.Asesorias.services.ClienteService;
 

@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="CSS/Style.css"/>
+<th:block th:replace="fragment/Header :: head"></th:block>
 <title>Inicio Hand Solo Asesorias</title>
 </head>
 <body>
 	<header>
- 		<div th:replace="Menu"></div>
+ 		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
 	<main>
 	<section class="fondoMain d-flex">
@@ -28,9 +26,10 @@ productividad, contribuyendo a un ahorro económico.</p>
 	<section class="opciones d-flex flex-column">
 		<h2>Elige la opción de lo que deseas realizar</h2>
 	
-			<button class="btn btnInicio"type="submit"><a  th:href="@{/CrearCapacitacion}">Crear capacitación</a> </button>
-			<button class="btn btnInicio"type="submit"><a  th:href="@{/ListaCapacitacion}">Lista de capacitaciones</a> </button>
-		
+			<button class="btn btnInicio"type="submit"><a  th:href="@{/menu_capacitacion}">Capacitaciones</a> </button>
+			<button class="btn btnInicio"type="submit"><a  th:href="@{/menu_profesional}">Usuario Profesional</a> </button>
+			<button class="btn btnInicio"type="submit"><a  th:href="@{/menu_admin}">Usuario Administrativo</a> </button>
+			<button class="btn btnInicio"type="submit"><a  th:href="@{/menu_cliente}">Usuario Cliente</a> </button>
 		
 		<button class="btn btnInicio"><a th:href="@{/Contacto}">Solicitar contacto</a></button>
 	</section>

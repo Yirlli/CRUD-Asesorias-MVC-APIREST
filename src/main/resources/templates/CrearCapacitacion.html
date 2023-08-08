@@ -2,14 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
-<meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="CSS/Style.css"/>
+<th:block th:replace="fragment/Header :: head"></th:block>
 <title>Formulario crear capacitacion</title>
 </head>
 <body>
 	<header>
- 		<div th:replace="Menu"></div>
+ 		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
 
 	<section class="fondo d-flex flex-column">
@@ -62,10 +60,7 @@
 						<div class="form-text">Máximo 1000 asistentes Mínimo 1</div>
 						<p class="msjError text-danger"></p>
 					</div>
-					
-					
-					
-					
+		
 				</div>
 			
 				

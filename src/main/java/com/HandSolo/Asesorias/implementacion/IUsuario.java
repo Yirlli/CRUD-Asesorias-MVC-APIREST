@@ -1,9 +1,11 @@
 package com.HandSolo.Asesorias.implementacion;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.HandSolo.Asesorias.domain.Usuario;
+import com.HandSolo.Asesorias.modelo.Usuario;
 import com.HandSolo.Asesorias.repositories.UsuarioRepositorio;
 import com.HandSolo.Asesorias.services.UsuarioService;
 
@@ -41,6 +43,12 @@ public class IUsuario implements UsuarioService {
 	public void deleteUsuario(Integer id) {
 		// TODO Auto-generated method stub
 		repositorio.deleteById(id);
+	}
+
+	@Override
+	public Optional<Usuario> findByRut(String rut) {
+		// TODO Auto-generated method stub
+		return repositorio.findByRut(rut);
 	}
 
 }
