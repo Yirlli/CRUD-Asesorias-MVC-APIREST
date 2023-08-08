@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<th:block th:replace="fragment/Header :: head"></th:block>
+<title>Menu de opciones Profesional</title>
+</head>
+<body>
+	<header>
+ 		<th:block th:replace="fragment/Menu :: menu"></th:block>
+	</header>
+	<section class="fondo d-flex container-fluid vh-100 flex-column">
+		<div class="bg-light-subtle d-flex flex-column justify-content-center align-items-center mt-5 rounded">
+			<h1 class="mt-5">Menu de opciones para usuarios Profesionales</h1>
+				<div class="d-flex justify-content-center  align-self-center flex-column gap-4 mt-5 mb-5">
+					<button class="btn btn-primary" ><a th:href="@{/ProfesionalForm}">Crear Usuario</a></button>
+					<button class="btn btn-secondary "><a th:href="@{/ListarProfesional}">Mostrar lista de Profesionales</a></button>
+					<button class="btn btn-secondary"><a th:href="@{/EditarProfesional}">Editar Profesionales</a></button>
+					<button class="btn btn-secondary "><a th:href="@{/EliminarProfesional}">Eliminar Profesionales</a></button>
+				</div>
+		</div>
+		<div class="volver d-flex justify-content-center mt-5 mb-5">
+		<a th:href="@{/}">Volver a página de inicio</a>
+		</div>
+	</section>
+
+</body>
+</html>

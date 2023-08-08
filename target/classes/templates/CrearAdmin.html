@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<th:block th:replace="fragment/Header :: head"></th:block>
+<title>Crear usuario</title>
+</head>
+<body>
+	<header>
+ 		<th:block th:replace="fragment/Menu :: menu"></th:block>
+	</header>
+	<section class="fondo d-flex  justify-content-center vh-100">
+		<section class="formCapacitacion d-flex flex-column  justify-content-center">
+			<h1>Datos del Usuario</h1>
+			<form th:action="@{/ListaAdministrativo}" th:object="${administrativo}"  method="POST" id="form" >
+				<div class="nombreUsuario">
+					<label class="form-label" for="nombre">Nombre:</label>
+					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombreUsuario" th:field="*{nombre}" id="nombreUsuario">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="apellidoUsuario">
+					<label class="form-label" for="apellidoUsuario">Apellido:</label>
+					<input class="form-control" placeholder="Ingresa su apellido" type="text" name="apellidoUsuario" th:field="*{apellido}" id="apellido">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="rutUsuario">
+					<label class="form-label" for="rutUsuario">RUT:</label>
+					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="rutUsuario" th:field="*{rut}" id="rut">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="passwordUsuario">
+					<label class="form-label" for="passwordUsuari">Contraseña:</label>
+					<input class="form-control" placeholder="Ingresa una contraseña" type="password" name="passwordUsuario" th:field="*{password}" id="passwordUsuario">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="d-flex flex-column">
+					<label class="form-label">Seleccione el rol de usuario según su perfil: </label>
+					<select id="tipoUsuario" name="rolNombre" class="form-control">
+    					<option th:each="rol : ${T(com.HandSolo.Asesorias.utils.RolNombre).values()}"
+           				 th:if="${rol == T(com.HandSolo.Asesorias.utils.RolNombre).ADMINISTRADOR}"
+           				 th:value="${rol}" th:text="${rol.nombreRol}"></option>
+					</select>
+					
+				<div class="area">
+         			<label class="form-label" for="area">Area:</label>
+         			<input class="form-control" type="text" placeholder="Ingrese el area al que corresponde" name="area" th:field="*{area}" id="area">
+         			<p class="msjError"></p>
+      			</div>
+      			<div class="experienciaPrevia">
+      				<label class="form-label" for="experienciaPrevia">Experiencia Previa:</label>
+		 			<input class="form-control" type="text" placeholder="Ingrese su experiencia previa" name="experienciaPrevia" th:field="*{experienciaPrevia}" id="experienciaPrevia">
+		 			<p class="msjError"></p> 
+      			</div>
+				
+		
+				<div class="d-flex justify-content-center botones mt-5 ">
+					<button class="btn"type="submit" id="btnCrearUsuario">Enviar</button>
+					<button class="btn"type="reset">Borrar</button>
+				
+				</div>
+			
+			</form>
+			<div class="volver mb-5 d-flex justify-content-center">
+				<a th:href="@{/}">Volver a página de inicio</a>
+			</div> 
+			
+	
+		</section>
+		
+	</section>
+	
+	
+	
+</body>
+</html>

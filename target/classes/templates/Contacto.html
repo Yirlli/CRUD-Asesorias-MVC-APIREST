@@ -2,38 +2,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="CSS/Style.css"/>
+<th:block th:replace="fragment/Header :: head"></th:block>
 <title> Formuluario de Contacto</title>
 </head>
 <body>
 	<header>
- 		<div th:replace="Menu"></div>
+ 		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
 	<section class="fondo d-flex flex-column justify-content-center align-items-center">
 		<section class="formCapacitacion d-fex align-center fondo">
 			<h1 class="tituloContacto">Contacto</h1>
-			<form action="Contacto" method="POST" class="d-flex flex-column">
+			<form th:action="@{/CrearContacto}" method="POST" th:object="${contacto}" class="d-flex flex-column">
 				<div class="nombreConsulta">
 					<label class="form-label">Nombre:</label>
-					<input  class="form-control" placeholder="Nombre de contacto"  type="text" name="nombreConsulta">
+					<input  class="form-control" placeholder="Nombre de contacto"  type="text" name="nombreConsulta" th:field="*{nombre}">
 				</div>	
 				<div class="apellidoConsulta">
 					<label class="form-label">Apellido:</label>
-					<input  class="form-control" placeholder="Apellido de contacto" type="text" name="apellidoConsulta">
+					<input  class="form-control" placeholder="Apellido de contacto" type="text" name="apellidoConsulta" th:field="*{apellido}">
 				</div>
 				<div class="tlfConsulta">
 					<label class="form-label">Teléfono: </label>
-					<input class="form-control" placeholder="(+569)" type="number" name="tlfConsulta">
+					<input class="form-control" placeholder="(+569)" type="number" name="tlfConsulta" th:field="*{telefono}">
 				</div>
 				<div class="emailConsulta">
 					<label class="form-label">Email: </label>
-					<input class="form-control" placeholder="micorreo@gmail.com" type="email" name="emailConsulta">
+					<input class="form-control" placeholder="micorreo@gmail.com" type="email" name="emailConsulta" th:field="*{email}">
 				</div>
 				<div class="mensaje">
 					<label class="form-label">Mensaje: </label>
-					<textarea class="form-control" placeholder="ingrese su texto aqui "type="text" name="mensaje"></textarea>
+					<textarea class="form-control" placeholder="ingrese su texto aqui "type="text" name="mensaje" th:field="*{mensaje}"></textarea>
 				</div>
 				<div class="d-flex justify-content-center botones"> 
 					<button class="btn  mt-5 mb-5" type="submit">Enviar</button>

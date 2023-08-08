@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<th:block th:replace="fragment/Header :: head"></th:block>
+<title>Crear usuario cliente</title>
+</head>
+<body>
+	<header>
+ 		<th:block th:replace="fragment/Menu :: menu"></th:block>
+	</header>
+	<section class="fondo d-flex  justify-content-center">
+		<section class="formCapacitacion d-flex flex-column  justify-content-center">
+			<h1>Datos del Usuario</h1>
+			<form th:action="@{/ListarCliente}" th:object="${cliente}"  method="POST" id="form" >
+				<div class="razonSocial">
+					<label class="form-label" for="razonSocial">Razon Social de la empresa:</label>
+					<input class="form-control" placeholder="Ingresa la razon social de la empresa "type="text" name="razonSocial" th:field="*{razonSocial}" id="razonSocial">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="nombreUsuario">
+					<label class="form-label" for="nombre">Nombre:</label>
+					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombreUsuario" th:field="*{nombre}" id="nombreUsuario">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="apellidoUsuario">
+      				<label class="form-label" for="apellidoUsuario">Apellidos:</label>
+					<input class="form-control" type="text" placeholder="Ingresa sus apellidos" name="apellidoUsuario" th:field="*{apellido}" id="apellidoUsuario">
+					<p class="msjError text-danger"></p>	
+      			</div>
+      			<div class="rutUsuario">
+					<label class="form-label" for="rutUsuario">RUT:</label>
+					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="rutUsuario" th:field="*{rut}" id="rut">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="passwordUsuario">
+					<label class="form-label" for="passwordUsuari">Contraseña:</label>
+					<input class="form-control" placeholder="Ingresa una contraseña" type="password" name="passwordUsuario" th:field="*{password}" id="passwordUsuario">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="d-flex flex-column">
+					<label class="form-label">Seleccione el rol de usuario según su perfil: </label>
+					<select id="tipoUsuario" name="rol" th:field="*{rol}"class="form-control">	
+						<option th:value="Cliente" selected>Cliente</option>
+					</select>
+				
+      			
+      			<div class="tlfCliente">
+      				<label class="form-label" for="tlfCliente">Telefono:</label>
+					<input class="form-control" type="number" placeholder="Ingrese el numero de telefono (+56)" name="tlfCliente" th:field="*{telefono}" id="tlfCliente">
+					<p class="msjError text-danger"></p> 
+      			</div>
+      			<div class="afp">
+      				<label class="form-label" for="afp">AFP:</label>
+					<input class="form-control" type="text" placeholder="Ingrese la AFP afiliada" name="afp"th:field="*{afp}"id="afp">
+					<p class="msjError text-danger"></p>
+      			</div>
+      			<div class="sistemaSalud">
+      				<label class="form-label" for="sistemaSalud">Sistema de salud:</label>
+					<select id="tipoUsuario" name="sistemaSalud" th:field="*{sistemaSalud}" class="form-control" required>	
+						<option th:value="despliegue" selected></option>
+						<option th:value="Fonasa"  >Opcion 1 Fonasa</option>
+						<option th:value="Isapre" >Opcion 2 Isapre</option>
+					</select>
+					<p class="msjError text-danger"></p> 
+      			</div>
+      			<div class="direccion">
+      				<label class="form-label" for="direccion" >Direccion:</label>
+					<input class="form-control" type="text" placeholder="Ingrese su direccion de domicilio" name="direccion" th:field="*{direccionCliente}"id="direccion">
+					<p class="msjError text-danger"></p> 
+      			</div>
+      			<div class="comuna">
+      				<label class="form-label" for="comuna" >Comuna:</label>
+					<input class="form-control" type="text" placeholder="Ingrese la comuna" name="comuna" th:field="*{comunaCliente}"id="comuna">
+					<p class="msjError text-danger"></p> 
+      			</div>
+      			<div class="edad">
+      				<label class="form-label" for="edad">Edad:</label>
+					<input class="form-control" type="number" placeholder="Ingrese su edad" name="edad" th:field="*{edad}" id="edad">
+					<p class="msjError text-danger"></p> 
+      			</div>
+				
+		
+				<div class="d-flex justify-content-center botones mt-5 ">
+					<button class="btn"type="submit" id="btnCrearUsuario">Enviar</button>
+					<button class="btn"type="reset">Borrar</button>
+				
+				</div>
+			
+			</form>
+			<div class="volver mb-5 d-flex justify-content-center">
+				<a th:href="@{/}">Volver a página de inicio</a>
+			</div> 
+			
+	
+		</section>
+		
+	</section>
+	
+	
+	
+</body>
+</html>
