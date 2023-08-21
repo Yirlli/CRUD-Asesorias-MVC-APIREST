@@ -43,4 +43,8 @@ public class ICliente implements ClienteService {
 		repositorio.deleteById(id);
 	}
 
+	
+
+	
+
 }

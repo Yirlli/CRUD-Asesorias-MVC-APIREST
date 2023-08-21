@@ -14,6 +14,11 @@ import jakarta.persistence.Table;
 public class Administrativo extends Usuario {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "area")
 	private String area;
 	
@@ -40,9 +45,9 @@ public class Administrativo extends Usuario {
 
 
 
-	public Administrativo(int id, String nombre, String apellido, String password, String rut, 
-			List<Rol> rol, String area, String experienciaPrevia) {
-		super(id, nombre, apellido, password, rut, rol);
+	public Administrativo(int id, String nombre, String apellido, String password, String username, 
+			List<Rol> roles, String area, String experienciaPrevia) {
+		super(id, nombre, apellido, password, username, roles);
 		// TODO Auto-generated constructor stub
 		this.area = area;
 		this.experienciaPrevia= experienciaPrevia;

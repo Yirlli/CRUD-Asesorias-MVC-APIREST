@@ -18,6 +18,8 @@ public interface UsuarioService {
 	
 	public void deleteUsuario(Integer id);
 	
-	Optional<Usuario> findByRut(String rut);
+	/*Optional<Usuario> findByRut(String rut);*/
+	
+	Optional<Usuario> findByUsername(String username);
 
 }

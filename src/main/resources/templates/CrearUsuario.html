@@ -9,22 +9,36 @@
 	<header>
  		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
-	<section class="fondo d-flex  justify-content-center vh-100">
+	<section class="fondo d-flex  justify-content-center ">
 		<section class="formCapacitacion d-flex flex-column  justify-content-center">
 			<h1>Datos del Usuario</h1>
 			<form th:action="@{/ListaUsuario}" th:object="${usuario}"  method="POST" id="form" >
 				<div class="nombreUsuario">
 					<label class="form-label" for="nombre">Nombre de usuario:</label>
-					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombreUsuario" th:field="*{nombre}" id="nombreUsuario">
+					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombre" th:field="*{nombre}" id="nombreUsuario">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="apellidoUsuario">
+					<label class="form-label" for="apellido">Apellido:</label>
+					<input class="form-control" placeholder="Ingresa su apellido" type="text" name="apellido" th:field="*{apellido}" id="apellido">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="rutUsuario">
+					<label class="form-label" for="username">RUT:</label>
+					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="username" th:field="*{username}" id="rut">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="passwordUsuario">
+					<label class="form-label" for="password">Contraseña:</label>
+					<input class="form-control" placeholder="Ingresa una contraseña" type="password" name="password" th:field="*{password}" id="passwordUsuario">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="d-flex flex-column">
 					<label class="form-label">Seleccione el tipo de usuario según su perfil: </label>
-					<select id="tipoUsuario" name="tipo" th:field="*{tipo}"class="form-control">	
-						<option th:value="despliegue" selected>Despliegue las opciones</option>
-						<option th:value="Administrativo">Administrativo</option>
-						<option th:value="Cliente ">Cliente</option>
-						<option th:value="Profesional ">Profesional</option>
+					<select id="tipoUsuario" name="rolNombre" class="form-control">
+						<option th:value="despliegue" selected>Seleccione el rol del usuario</option>	
+						<option th:each="rol : ${T(com.HandSolo.Asesorias.utils.RolNombre).values()}"
+           				 th:value="${rol}" th:text="${rol.nombreRol}"></option>
 					</select>
 					
 				</div>

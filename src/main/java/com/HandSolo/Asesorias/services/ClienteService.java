@@ -7,11 +7,12 @@ public interface ClienteService {
 
 	Cliente getClienteById(Integer id);
 	
-
+	
 	Cliente saveCliente(Cliente cliente);
 	
 	Cliente updateCliente(Cliente cliente);
 	
 	public void deleteUsuario(Integer id);
+	
 
 }

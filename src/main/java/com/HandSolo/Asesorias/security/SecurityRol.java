@@ -6,6 +6,10 @@ import com.HandSolo.Asesorias.modelo.Rol;
 
 public class SecurityRol implements GrantedAuthority {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final Rol rol;
 	
 	public SecurityRol(Rol rol) {
@@ -16,5 +20,11 @@ public class SecurityRol implements GrantedAuthority {
 		// TODO Auto-generated method stub
 		return rol.getNombre().toString();
 	}
+	public Rol getRol() {
+		return rol;
+	}
+	
+	 
+	
 
 }

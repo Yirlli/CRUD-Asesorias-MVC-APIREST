@@ -8,6 +8,7 @@ import com.HandSolo.Asesorias.modelo.Usuario;
 
 @Repository
 public interface UsuarioRepositorio extends CrudRepository<Usuario, Integer> {
-
-	Optional<Usuario> findByRut(String rut);
+/*
+	Optional<Usuario> findByRut(String rut);*/
+	Optional<Usuario> findByUsername(String username);
 }

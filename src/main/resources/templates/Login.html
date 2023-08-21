@@ -9,15 +9,21 @@
 <section class="fondo d-flex flex-column p-5 vh-100 align-items-center">
 		<section class="formCapacitacion d-fex align-center "> 
 			<h1 class="tituLogin">Inicia sesión</h1>
-			<form  th:action="@{/login}"method="POST" >
+			<form  th:action="@{/Login}"method="POST" >
 				<div class=" d-flex flex-column align-items-center"> 
-					<div>
-						<label class="form-label">Usuario:</label>
-						<input class="form-control" placeholder="Ingresa el usuario "type="text"name="userLogin">
+					<div th:if="${param.error}">
+						<div class="alert alert-danger">Usuario o contraseña Invalida </div>
+					</div>
+					<div th:if="${param.logout}">
+						<div class="alert alert-info">Ha cerrado sesion exitosamente </div>
 					</div>
 					<div>
-						<label class="form-label">Contraseña:</label>
-						<input  class="form-control" type="password"placeholder="Ingrese su contraseña"  name="contraseniaLogin">
+						<label class="form-label" for="username">Usuario:</label>
+						<input class="form-control" placeholder="Ingresa el usuario" type="text" name="username">
+					</div>
+					<div>
+						<label class="form-label" for="password">Contraseña:</label>
+						<input  class="form-control" type="password"placeholder="Ingrese su contraseña"  name="password">
 					</div>
 				
 				</div>

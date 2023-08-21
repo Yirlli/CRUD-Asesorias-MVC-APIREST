@@ -29,8 +29,8 @@ public class Rol {
 	@Enumerated(EnumType.STRING)
 	private RolNombre nombre;
 
-	@ManyToMany(mappedBy = "rol")
-    private List<Usuario> users;
+	@ManyToMany(mappedBy = "roles")
+    private List<Usuario> usuarios;
 	
 	public int getId() {
 		return id;
@@ -52,19 +52,19 @@ public class Rol {
 		super();
 	}
 
-	public List<Usuario> getUsers() {
-		return users;
+	public List<Usuario> getUsuarios() {
+		return usuarios;
 	}
 
-	public void setUsers(List<Usuario> users) {
-		this.users = users;
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
-	public Rol(int id, RolNombre nombre, List<Usuario> users) {
+	public Rol(int id, RolNombre nombre, List<Usuario> usuarios) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
-		this.users = users;
+		this.usuarios = usuarios;
 	}
 
 

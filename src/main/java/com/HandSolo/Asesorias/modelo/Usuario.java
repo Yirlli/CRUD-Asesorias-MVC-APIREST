@@ -2,9 +2,12 @@ package com.HandSolo.Asesorias.modelo;
 
 import jakarta.persistence.UniqueConstraint;
 
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
+
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -18,13 +21,18 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToOne;
+
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Usuarios", uniqueConstraints = @UniqueConstraint(columnNames = "rut"))
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Usuario {
+public class Usuario implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,15 +46,16 @@ public class Usuario {
 	@Column(name = "password")
 	private String password;
 
-	@Column(name = "RUT")
-	private String rut;
+	@Column(name = "rut")
+	private String username;
 
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "rol_id", referencedColumnName = "id"))
-	private Collection<Rol> rol;
+	@JsonIgnore
+	private List<Rol> roles;
 	
 	public Usuario() {
-        rol = new ArrayList<>(); // Inicialización en el constructor
+        roles = new ArrayList<>(); 
     }
 
 	public int getId() {
@@ -77,43 +86,44 @@ public class Usuario {
 		return password;
 	}
 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	public String getRut() {
-		return rut;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setRut(String rut) {
-		this.rut = rut;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
-	public Collection<Rol> getRol() {
-		return rol;
+	public List<Rol> getRoles() {
+		return roles;
 	}
 
-	public void setRoles(Collection<Rol> rol) {
-		this.rol = rol;
+	public void setRoles(List<Rol> roles) {
+		this.roles = roles;
 	}
 
-	public Usuario(int id, String nombre, String apellido, String password, String rut, Collection<Rol> rol) {
+	public Usuario(int id, String nombre, String apellido, String password, String username, List<Rol> roles) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.password = password;
-		this.rut = rut;
-		this.rol = rol;
+		this.username = username;
+		this.roles = roles;
 	}
 
-	public Usuario(String nombre, String apellido, String password, String rut, Collection<Rol> rol) {
+	public Usuario(String nombre, String apellido, String password, String username, List<Rol> roles) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.password = password;
-		this.rut = rut;
-		this.rol = rol;
+		this.username = username;
+		this.roles = roles;
 	}
 
 

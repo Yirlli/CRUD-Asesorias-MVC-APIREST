@@ -53,14 +53,14 @@ public class CapacitacionController {
 		existenteCapacitacion.setId(id);
 		existenteCapacitacion.setNombre(capacitacion.getNombre());
 		existenteCapacitacion.setDetalle(capacitacion.getDetalle());
-		existenteCapacitacion.setRutCliente(capacitacion.getRutCliente());
+		existenteCapacitacion.getCliente().setUsername(capacitacion.getCliente().getUsername());
 		existenteCapacitacion.setDia(capacitacion.getDia());
 		existenteCapacitacion.setHora(capacitacion.getHora());
 		existenteCapacitacion.setLugar(capacitacion.getLugar());
 		existenteCapacitacion.setDuracion(capacitacion.getDuracion());
 		existenteCapacitacion.setCantidadAsistentes(capacitacion.getCantidadAsistentes());
 		servicio.updateCapacitacion(existenteCapacitacion);
-		return "redirect/ListaCapacitacion";
+		return "redirect:/ListaCapacitacion";
 	}
 	  
 	@GetMapping("/ListaCapacitacion/{id}")

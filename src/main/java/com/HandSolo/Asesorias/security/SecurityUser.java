@@ -10,6 +10,10 @@ import com.HandSolo.Asesorias.modelo.Usuario;
 
 public class SecurityUser implements UserDetails{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final Usuario usuario;
 	
 	public SecurityUser(Usuario usuario) {
@@ -19,7 +23,7 @@ public class SecurityUser implements UserDetails{
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return usuario.getRol().stream().map(SecurityRol::new).toList();
+		return usuario.getRoles().stream().map(SecurityRol::new).toList();
 	}
 
 	@Override
@@ -31,7 +35,7 @@ public class SecurityUser implements UserDetails{
 	@Override
 	public String getUsername() {
 		// TODO Auto-generated method stub
-		return usuario.getRut();
+		return usuario.getUsername();
 	}
 
 	@Override

@@ -20,7 +20,9 @@
    							<tr>
       							<th scope="col">Id</th>
       							<th scope="col">Nombre</th>
-      							<th scope="col">Tipo de usuario</th>
+      							<th scope="col">Apellido</th>
+      							<th scope="col">RUT</th>
+      							<th scope="col">Rol</th>	
       							<th scope="col">Acciones</th>
       							
    							</tr>
@@ -29,7 +31,9 @@
     						<tr th:each="usuario :${listaUsuario}">
       							<th scope="row" th:text="${usuario.id}">Id</th>
       							<td th:text="${usuario.nombre}">Nombre</td>
-     							<td th:text="${usuario.tipo}">Tipo de usuario</td>
+      							<td th:text="${usuario.apellido}">Apellido</td>
+      							<td th:text="${usuario.rut}">RUT</td>
+     							<td th:text="${usuario.rol}">Rol</td>
       	<!--	
       							<td>
 									  <a th:href="@{/ListaCapacitacion/editar/{id}(id=${capacitacion.id})}" class="btn btn-success" >Editar</a>

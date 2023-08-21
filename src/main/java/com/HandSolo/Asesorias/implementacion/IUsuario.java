@@ -3,6 +3,7 @@ package com.HandSolo.Asesorias.implementacion;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.HandSolo.Asesorias.modelo.Usuario;
@@ -14,6 +15,8 @@ public class IUsuario implements UsuarioService {
 	
 	@Autowired
 	private UsuarioRepositorio repositorio;
+	
+
 
 	@Override
 	public Iterable<Usuario> listAllUsuario() {
@@ -30,6 +33,7 @@ public class IUsuario implements UsuarioService {
 	@Override
 	public Usuario saveUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
+
 		return repositorio.save(usuario);
 	}
 
@@ -44,11 +48,19 @@ public class IUsuario implements UsuarioService {
 		// TODO Auto-generated method stub
 		repositorio.deleteById(id);
 	}
-
+/*
 	@Override
 	public Optional<Usuario> findByRut(String rut) {
 		// TODO Auto-generated method stub
 		return repositorio.findByRut(rut);
+	}*/
+
+	@Override
+	public Optional<Usuario> findByUsername(String username) {
+		// TODO Auto-generated method stub
+		return repositorio.findByUsername(username);
 	}
+
+	
 
 }
