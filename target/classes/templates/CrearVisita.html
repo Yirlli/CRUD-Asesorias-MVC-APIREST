@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<th:block th:replace="fragment/Header :: head"></th:block>
+<title>Insert title here</title>
+</head>
+<body>
+<body>
+	<header>
+ 		<th:block th:replace="fragment/Menu :: menu"></th:block>
+	</header>
+	<section class="fondo d-flex  justify-content-center vh-100">
+		<section class="formCapacitacion d-flex flex-column  justify-content-center">
+			<h1>Datos de la visita</h1>
+			<form th:action="@{/ListaVisitas}" th:object="${visitaTerreno}"  method="POST" id="form" >
+				<div>
+            		<label for="profesional">Profesional a cargo:</label>
+            		<select id="profesional" name="profesional" th:field="*{profesional}">
+						<th:block th:each="profesional : ${listaProfesional}" >
+							<option th:value="${profesional.id}" th:text="${profesional.nombre}"></option>
+						</th:block>
+                		
+            		</select>
+        		</div>
+        		<div>
+            		<label for="cliente">Cliente:</label>
+            		<select id="cliente" name="cliente" th:field="*{cliente}">
+						<th:block th:each="cliente : ${listaClientes}">
+							<option th:text="${cliente.razonSocial} " th:value="${cliente.id}"></option>
+						</th:block> 
+                		
+            		</select>
+        		</div>
+				<div class="fechaAcc">
+      				<label class="form-label" for="fechaAccidente">Fecha de accidente:</label>
+					<input class="form-control" type="date"  name="fechaAccidente" th:field="*{fechaAccidente}" id="fechaAccidente">
+					<p class="msjError"></p> 
+      			</div>
+				<div class="hora">
+					<label class="form-label" for="hora">Hora:</label>
+					<input class="form-control" type="time" name="hora" th:field="*{hora}" id="apellido">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="lugar">
+					<label class="form-label" for="lugar">Lugar:</label>
+					<input class="form-control" placeholder="Ingresa el lugar de la visita" type="text" name="lugar" th:field="*{lugar}" id="rut">
+					<p class="msjError text-danger"></p>
+				</div>
+				<div class="comentarios">
+					<label class="form-label" for="password">Comentarios:</label>
+					<input class="form-control" placeholder="Ingrese comentarios de la visita" type="text" name="comentarios" th:field="*{comentarios}" id="comentarios">
+					<p class="msjError text-danger"></p>
+				</div>
+				
+				
+		
+				<div class="d-flex justify-content-center botones mt-5 ">
+					<button class="btn"type="submit" id="btnCrearUsuario">Enviar</button>
+					<button class="btn"type="reset">Borrar</button>
+				
+				</div>
+			
+			</form>
+			<div class="volver mb-5 d-flex justify-content-center">
+				<a href="Index.jsp">Volver a página de inicio</a>
+			</div> 
+			
+	
+		</section>
+		
+	</section>
+	
+	
+	
+</body>
+</html>

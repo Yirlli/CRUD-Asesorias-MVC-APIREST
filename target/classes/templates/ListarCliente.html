@@ -8,6 +8,67 @@
 	<header>
 		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
+	<h3 class="text-center p-2">Lista de Clientes Registrados</h3>
+	<section class="fondo d-flex container-fluid justify-content-center p-5 vh-100 flex-column">
+
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+
+                <div class="container-fluid">
+					<table class="table">
+  						<thead>
+   							<tr>
+      							<th scope="col">Id</th>
+      							<th scope="col">Nombre</th>
+      							<th scope="col">Apellido</th>
+      							<th scope="col">RUT usuario</th>
+      							<th scope="col">Razon social de la empresa</th>
+      							<th scope="col">RUT Empresa</th>
+      							<th scope="col">Telefono</th>
+      							<th scope="col">AFP</th>
+      							<th scope="col">Sistema de Salud</th>
+      							<th scope="col">Direccion</th>
+      							<th scope="col">Comuna</th>
+      							<th scope="col">Edad</th>
+      							<th scope="col">Acciones</th>
+      							
+   							</tr>
+  						</thead>
+  						<tbody>
+    						<tr th:each="cliente :${listaCliente}">
+      							<th scope="row" th:text="${cliente.id}">Id</th>
+      							<td th:text="${cliente.nombre}">Nombre</td>
+      							<td th:text="${cliente.apellido}">Apellido</td>
+      							<td th:text="${cliente.username}">RUT</td>
+     							<td th:text="${cliente.razonSocial}">Razo Social</td>
+     							<td th:text="${cliente.rutCliente}">RUT Empresa</td>
+      							<td th:text="${cliente.telefono}">Telefono</td>
+      							<td th:text="${cliente.afp}">AFP</td>
+     							<td th:text="${cliente.sistemaSalud}">Sistema de Salud</td>
+     							<td th:text="${cliente.direccionCliente}">Direccion</td>
+      							<td th:text="${cliente.comunaCliente}">Comuna</td>
+      							<td th:text="${cliente.edad}">Edad</td>
+     							
+     							
+      	
+      							<td>
+									  <a th:href="@{/ListarCliente/editar/{id}(id=${cliente.id})}" class="btn btn-success" >Editar</a>
+								</td>
+      							<td>
+									  <a th:href="@{/ListarCliente//{id}(id=${cliente.id})}" class="btn btn-danger" >Eliminar</a>
+								</td>
+      							
+    						</tr>
+    						
+  						</tbody>
+					</table>
+
+                </div>
+
+            </div>
+            <div class="volver d-flex justify-content-center mb-5 mt-5">
+				<a class="mt-5" th:href="@{/}">Volver a página de inicio</a>
+			</div>
+          </section>
 
 </body>
 </html>

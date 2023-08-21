@@ -13,24 +13,24 @@
 		<section class="formCapacitacion d-flex flex-column  justify-content-center">
 			<h1>Datos del Usuario</h1>
 			<form th:action="@{/ListaAdministrativo}" th:object="${administrativo}"  method="POST" id="form" >
-				<div class="nombreUsuario">
+				<div class="nombre">
 					<label class="form-label" for="nombre">Nombre:</label>
-					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombreUsuario" th:field="*{nombre}" id="nombreUsuario">
+					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombre" th:field="*{nombre}" id="nombreUsuario">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="apellidoUsuario">
-					<label class="form-label" for="apellidoUsuario">Apellido:</label>
-					<input class="form-control" placeholder="Ingresa su apellido" type="text" name="apellidoUsuario" th:field="*{apellido}" id="apellido">
+					<label class="form-label" for="apellido">Apellido:</label>
+					<input class="form-control" placeholder="Ingresa su apellido" type="text" name="apellido" th:field="*{apellido}" id="apellido">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="rutUsuario">
-					<label class="form-label" for="rutUsuario">RUT:</label>
-					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="rutUsuario" th:field="*{rut}" id="rut">
+					<label class="form-label" for="username">RUT:</label>
+					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="username" th:field="*{username}" id="rut">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="passwordUsuario">
-					<label class="form-label" for="passwordUsuari">Contraseña:</label>
-					<input class="form-control" placeholder="Ingresa una contraseña" type="password" name="passwordUsuario" th:field="*{password}" id="passwordUsuario">
+					<label class="form-label" for="password">Contraseña:</label>
+					<input class="form-control" placeholder="Ingresa una contraseña" type="password" name="password" th:field="*{password}" id="passwordUsuario">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="d-flex flex-column">

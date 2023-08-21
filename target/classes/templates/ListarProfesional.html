@@ -8,6 +8,54 @@
 	<header>
 		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
+	<h3 class="text-center p-2">Lista de Profesionales Registrados</h3>
+	<section class="fondo d-flex container-fluid justify-content-center p-5 vh-100 flex-column">
+
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+
+                <div class="container-fluid">
+					<table class="table">
+  						<thead>
+   							<tr>
+      							<th scope="col">Id</th>
+      							<th scope="col">Nombre</th>
+      							<th scope="col">Apellido</th>
+      							<th scope="col">RUT</th>
+      							<th scope="col">Titulo</th>
+      							<th scope="col">Fecha de Ingreso</th>
+      							<th scope="col">Acciones</th>
+      							
+   							</tr>
+  						</thead>
+  						<tbody>
+    						<tr th:each="profesional :${listaProf}">
+      							<th scope="row" th:text="${profesional.id}">Id</th>
+      							<td th:text="${profesional.nombre}">Nombre</td>
+      							<td th:text="${profesional.apellido}">Apellido</td>
+      							<td th:text="${profesional.rut}">RUT</td>>
+     							<td th:text="${profesional.titulo}">Titulo</td>
+      							<td th:text="${profesional.fechaIngreso}">	Fecha de ingreso</td>
+     							
+      	
+      							<td>
+									  <a th:href="@{/ListaProfesional/editar/{id}(id=${profesional.id})}" class="btn btn-success" >Editar</a>
+								</td>
+      							<td>
+									  <a th:href="@{/ListaProfesional/{id}(id=${profesional.id})}" class="btn btn-danger" >Eliminar</a>
+								</td>
+      						
+    						</tr>
+    						
+  						</tbody>
+					</table>
+
+                </div>
+
+            </div>
+            <div class="volver d-flex justify-content-center mb-5 mt-5">
+				<a class="mt-5" th:href="@{/}">Volver a página de inicio</a>
+			</div>
+          </section>
 
 </body>
 </html>

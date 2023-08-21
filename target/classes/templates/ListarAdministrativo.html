@@ -8,6 +8,55 @@
 	<header>
 		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
+	<h3 class="text-center p-2">Lista de Administrativos Registrados</h3>
+	<section class="fondo d-flex container-fluid justify-content-center p-5 vh-100 flex-column">
+
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+
+                <div class="container-fluid">
+					<table class="table">
+  						<thead>
+   							<tr>
+      							<th scope="col">Id</th>
+      							<th scope="col">Nombre</th>
+      							<th scope="col">Apellido</th>
+      							<th scope="col">RUT</th>
+      							<th scope="col">Area</th>
+      							<th scope="col">Experiencia previa</th>
+      							<th scope="col">Acciones</th>
+      							
+   							</tr>
+  						</thead>
+  						<tbody>
+    						<tr th:each="administrativo :${listAdmin}">
+      							<th scope="row" th:text="${administrativo.id}">Id</th>
+      							<td th:text="${administrativo.nombre}">Nombre</td>
+      							<td th:text="${administrativo.apellido}">Apellido</td>
+      							<td th:text="${administrativo.username}">RUT</td>
+     							
+     							<td th:text="${administrativo.area}">Area</td>
+      							<td th:text="${administrativo.experienciaPrevia}">Experiencia Previa</td>
+     							
+      		
+      							<td>
+									  <a th:href="@{/ListaAdministrativo/editar/{id}(id=${administrativo.id})}" class="btn btn-success" >Editar</a>
+								</td>
+      							<td>
+									  <a th:href="@{/ListaAdministrativo/{id}(id=${administrativo.id})}" class="btn btn-danger" >Eliminar</a>
+								</td>
+      							
+    						</tr>
+    						
+  						</tbody>
+					</table>
+
+                </div>
+
+            </div>
+            <div class="volver d-flex justify-content-center mb-5 mt-5">
+				<a class="mt-5" th:href="@{/}">Volver a página de inicio</a>
+			</div>
+          </section>
 
 </body>
 </html>

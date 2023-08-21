@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
 <th:block th:replace="fragment/Header :: head"></th:block>
 <title>Inicio Hand Solo Asesorias</title>
@@ -27,7 +27,7 @@ productividad, contribuyendo a un ahorro económico.</p>
 		<h2>Elige la opción de lo que deseas realizar</h2>
 	
 			<button class="btn btnInicio"type="submit"><a  th:href="@{/menu_capacitacion}">Capacitaciones</a> </button>
-			<button class="btn btnInicio"type="submit"><a  th:href="@{/menu_profesional}">Usuario Profesional</a> </button>
+			<button sec:authorize="hasAuthority("ADMINISTRADOR")" class="btn btnInicio"type="submit"><a  th:href="@{/menu_profesional}">Usuario Profesional</a> </button>
 			<button class="btn btnInicio"type="submit"><a  th:href="@{/menu_admin}">Usuario Administrativo</a> </button>
 			<button class="btn btnInicio"type="submit"><a  th:href="@{/menu_cliente}">Usuario Cliente</a> </button>
 		

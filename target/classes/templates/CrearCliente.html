@@ -18,6 +18,11 @@
 					<input class="form-control" placeholder="Ingresa la razon social de la empresa "type="text" name="razonSocial" th:field="*{razonSocial}" id="razonSocial">
 					<p class="msjError text-danger"></p>
 				</div>
+				<div class="rutCliente">
+					<label class="form-label" for="rutCliente">RUT de la empresa :</label>
+					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="rutCliente" th:field="*{rutCliente}" id="rutCLiente">
+					<p class="msjError text-danger"></p>
+				</div>
 				<div class="nombreUsuario">
 					<label class="form-label" for="nombre">Nombre:</label>
 					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombreUsuario" th:field="*{nombre}" id="nombreUsuario">
@@ -28,9 +33,9 @@
 					<input class="form-control" type="text" placeholder="Ingresa sus apellidos" name="apellidoUsuario" th:field="*{apellido}" id="apellidoUsuario">
 					<p class="msjError text-danger"></p>	
       			</div>
-      			<div class="rutUsuario">
-					<label class="form-label" for="rutUsuario">RUT:</label>
-					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="rutUsuario" th:field="*{rut}" id="rut">
+      			<div class="rutCliente">
+					<label class="form-label" for="rut">RUT del usuario:</label>
+					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="username" th:field="*{username}" id="rutCLiente">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="passwordUsuario">
@@ -40,19 +45,21 @@
 				</div>
 				<div class="d-flex flex-column">
 					<label class="form-label">Seleccione el rol de usuario según su perfil: </label>
-					<select id="tipoUsuario" name="rol" th:field="*{rol}"class="form-control">	
-						<option th:value="Cliente" selected>Cliente</option>
+					<select id="tipoUsuario" name="rolNombre" class="form-control">
+    					<option th:each="rol : ${T(com.HandSolo.Asesorias.utils.RolNombre).values()}"
+           				 th:if="${rol == T(com.HandSolo.Asesorias.utils.RolNombre).CLIENTE}"
+           				 th:value="${rol}" th:text="${rol.nombreRol}"></option>
 					</select>
 				
       			
       			<div class="tlfCliente">
-      				<label class="form-label" for="tlfCliente">Telefono:</label>
-					<input class="form-control" type="number" placeholder="Ingrese el numero de telefono (+56)" name="tlfCliente" th:field="*{telefono}" id="tlfCliente">
+      				<label class="form-label" for="telefono">Telefono:</label>
+					<input class="form-control" type="number" placeholder="Ingrese el numero de telefono (+56)" name="telefono" th:field="*{telefono}" id="tlfCliente">
 					<p class="msjError text-danger"></p> 
       			</div>
       			<div class="afp">
       				<label class="form-label" for="afp">AFP:</label>
-					<input class="form-control" type="text" placeholder="Ingrese la AFP afiliada" name="afp"th:field="*{afp}"id="afp">
+					<input class="form-control" type="text" placeholder="Ingrese la AFP afiliada" name="afp" th:field="*{afp}"id="afp">
 					<p class="msjError text-danger"></p>
       			</div>
       			<div class="sistemaSalud">
@@ -65,13 +72,13 @@
 					<p class="msjError text-danger"></p> 
       			</div>
       			<div class="direccion">
-      				<label class="form-label" for="direccion" >Direccion:</label>
-					<input class="form-control" type="text" placeholder="Ingrese su direccion de domicilio" name="direccion" th:field="*{direccionCliente}"id="direccion">
+      				<label class="form-label" for="direccionCliente" >Direccion:</label>
+					<input class="form-control" type="text" placeholder="Ingrese su direccion de domicilio" name="direccionCliente" th:field="*{direccionCliente}"id="direccion">
 					<p class="msjError text-danger"></p> 
       			</div>
       			<div class="comuna">
-      				<label class="form-label" for="comuna" >Comuna:</label>
-					<input class="form-control" type="text" placeholder="Ingrese la comuna" name="comuna" th:field="*{comunaCliente}"id="comuna">
+      				<label class="form-label" for="comunaCliente" >Comuna:</label>
+					<input class="form-control" type="text" placeholder="Ingrese la comuna" name="comunaCliente" th:field="*{comunaCliente}"id="comuna">
 					<p class="msjError text-danger"></p> 
       			</div>
       			<div class="edad">

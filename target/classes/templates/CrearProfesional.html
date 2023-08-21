@@ -15,28 +15,30 @@
 			<form th:action="@{/ListaProfesional}" th:object="${profesional}"  method="POST" id="form" >
 				<div class="nombreUsuario">
 					<label class="form-label" for="nombre">Nombre:</label>
-					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombreUsuario" th:field="*{nombre}" id="nombreUsuario">
+					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombre" th:field="*{nombre}" id="nombreUsuario">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="apellidoUsuario">
 					<label class="form-label" for="apellidoUsuario">Apellido:</label>
-					<input class="form-control" placeholder="Ingresa su apellido" type="text" name="apellidoUsuario" th:field="*{apellido}" id="apellido">
+					<input class="form-control" placeholder="Ingresa su apellido" type="text" name="apellido" th:field="*{apellido}" id="apellido">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="rutUsuario">
-					<label class="form-label" for="rutUsuario">RUT:</label>
-					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="rutUsuario" th:field="*{rut}" id="rut">
+					<label class="form-label" for="rut">RUT:</label>
+					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="username" th:field="*{username}" id="rut">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="passwordUsuario">
-					<label class="form-label" for="passwordUsuari">Contraseña:</label>
-					<input class="form-control" placeholder="Ingresa una contraseña" type="password" name="passwordUsuario" th:field="*{password}" id="passwordUsuario">
+					<label class="form-label" for="password">Contraseña:</label>
+					<input class="form-control" placeholder="Ingresa una contraseña" type="password" name="password" th:field="*{password}" id="passwordUsuario">
 					<p class="msjError text-danger"></p>
 				</div>
 				<div class="d-flex flex-column">
 					<label class="form-label">Seleccione el rol de usuario según su perfil: </label>
-					<select id="tipoUsuario" name="tipo" th:field="*{rol}"class="form-control">	
-						<option th:value="Profesional selected">Profesional</option>
+					<select id="tipoUsuario" name="rolNombre" class="form-control">
+    					<option th:each="rol : ${T(com.HandSolo.Asesorias.utils.RolNombre).values()}"
+           				 th:if="${rol == T(com.HandSolo.Asesorias.utils.RolNombre).PROFESIONAL}"
+           				 th:value="${rol}" th:text="${rol.nombreRol}"></option>
 					</select>
 				<div class="titulo">
          			<label class="form-label" for="titulo">Titulo:</label>
