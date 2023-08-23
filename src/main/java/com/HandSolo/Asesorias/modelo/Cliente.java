@@ -56,6 +56,19 @@ import jakarta.persistence.CascadeType;
 		@JsonIgnore
 		private List<Capacitacion> capacitaciones= new ArrayList<>();
 	
+		@OneToMany(mappedBy = "cliente")
+		@JsonIgnore
+		private List<Pago> pagos = new ArrayList<>();
+		
+		
+		public List<Pago> getPagos() {
+			return pagos;
+		}
+
+		public void setPagos(List<Pago> pagos) {
+			this.pagos = pagos;
+		}
+
 		public String getRazonSocial() {
 			return razonSocial;
 		}
@@ -150,7 +163,7 @@ import jakarta.persistence.CascadeType;
 	
 		public Cliente(String razonSocial, String rutCliente, String telefono, String afp, String sistemaSalud,
 				String direccionCliente, String comunaCliente, Integer edad, List<VisitaTerreno> visitaTerreno,
-				List<Accidente> accidentes, List<Capacitacion> capacitaciones) {
+				List<Accidente> accidentes, List<Capacitacion> capacitaciones, List <Pago> pagos) {
 			super();
 			this.razonSocial = razonSocial;
 			this.rutCliente = rutCliente;
@@ -163,11 +176,12 @@ import jakarta.persistence.CascadeType;
 			this.visitaTerreno = visitaTerreno;
 			this.accidentes = accidentes;
 			this.capacitaciones = capacitaciones;
+			this.pagos= pagos;
 		}
 	
 		public Cliente(int id, String nombre, String apellido, String password, String username, List<Rol> roles, String razonSocial, String rutCliente, String telefono, String afp, String sistemaSalud,
 				String direccionCliente, String comunaCliente, Integer edad, List<VisitaTerreno> visitaTerreno,
-				List<Accidente> accidentes, List<Capacitacion> capacitaciones) {
+				List<Accidente> accidentes, List<Capacitacion> capacitaciones, List <Pago> pagos) {
 			super(id, nombre, apellido, password, username, roles );
 			// TODO Auto-generated constructor stub
 			this.razonSocial = razonSocial;
@@ -181,6 +195,7 @@ import jakarta.persistence.CascadeType;
 			this.visitaTerreno = visitaTerreno;
 			this.accidentes = accidentes;
 			this.capacitaciones = capacitaciones;
+			this.pagos = pagos;
 		}
 		
 	

@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.HandSolo.Asesorias.modelo.Capacitacion;
+import com.HandSolo.Asesorias.modelo.Cliente;
 import com.HandSolo.Asesorias.services.CapacitacionService;
+import com.HandSolo.Asesorias.services.ClienteService;
 
 
 @Controller
@@ -20,10 +22,14 @@ public class CapacitacionController {
 	@Autowired
 	private CapacitacionService servicio;
 	
+	@Autowired
+	private ClienteService clienteService;
 
 	@GetMapping("/CrearCapacitacion")
 	public String CrearCapacitacionForm(Model model) {
+		Iterable<Cliente> listaClientes = clienteService.listAllCliente();
 		Capacitacion capacitacion = new Capacitacion();
+		model.addAttribute("listaClientes", listaClientes);
 		model.addAttribute("capacitacion", capacitacion);
 		return "CrearCapacitacion";
 	}

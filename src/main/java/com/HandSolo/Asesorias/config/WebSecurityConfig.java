@@ -44,17 +44,17 @@ public class WebSecurityConfig {
 	                		"/Index", 
 	                		"/Login",
 	                		"/CSS/**",
-	                		"/api/lista",
+	                		"/api/**",
 	                		 "/JS/**").permitAll()
 	                .requestMatchers("/menu_admin",
 	                		"/CrearAdministrativo", "/ListaAdministrativo", "/ListaAdministrativo/editar/{id}", "/ListaAdministrativo/{id}",
 	                		"/ProfesionalForm", "/ListaProfesional", "/ListaProfesional/editar/{id}","/ListaProfesional/{id}", 
-	                		"/ClienteForm","/ListarCliente", "/ListarCliente/editar/{id}", "/ListarCliente/{id}"
+	                		"/ClienteForm","/ListarCliente", "/ListarCliente/editar/{id}", "/ListarCliente/{id}", "/PagoForm", "/ListaPago"
 	                		).hasAuthority("ADMINISTRADOR")
-	                .requestMatchers("/menu_profesional").hasAuthority("PROFESIONAL")
+	                .requestMatchers("/menu_profesional", "/CrearVisita", "/ListaVisitas", "/crearAsesoria", "/ListaAsesoria" ).hasAuthority("PROFESIONAL")
 	                .requestMatchers("/menu_cliente",
 	                		"/Contacto", "/CrearContacto", "/ContactoEnviado","/menu_capacitacion",
-	                		"/CrearCapacitacion", "/ListaCapacitacion", "ListaCapacitacion/editar/{id}","/ListaCapacitacion/{id}", "/ListaCapacitacion/{id}" ).hasAuthority("CLIENTE")
+	                		"/CrearCapacitacion", "/ListaCapacitacion", "ListaCapacitacion/editar/{id}","/ListaCapacitacion/{id}" ).hasAuthority("CLIENTE")
 	                .anyRequest().authenticated()
 	                
 	                

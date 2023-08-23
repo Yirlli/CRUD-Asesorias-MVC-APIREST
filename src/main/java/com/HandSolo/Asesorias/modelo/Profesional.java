@@ -43,6 +43,19 @@ public class Profesional extends Usuario {
 	@OneToMany(mappedBy = "profesional")
 	@JsonIgnore
     private List<VisitaTerreno> visitasEnTerreno = new ArrayList<>();
+	
+	@OneToMany(mappedBy="profesional")
+	@JsonIgnore
+	private List<Asesorias> asesorias = new ArrayList<>();
+
+	
+	public List<Asesorias> getAsesorias() {
+		return asesorias;
+	}
+
+	public void setAsesorias(List<Asesorias> asesorias) {
+		this.asesorias = asesorias;
+	}
 
 	public String getTitulo() {
 		return titulo;
@@ -72,19 +85,23 @@ public class Profesional extends Usuario {
 		super();
 	}
 
-	public Profesional(String titulo, Date fechaIngreso, List<VisitaTerreno> visitasEnTerreno) {
+	public Profesional(String titulo, Date fechaIngreso, List<VisitaTerreno> visitasEnTerreno, List<Asesorias> asesorias) {
 		super();
 		this.titulo = titulo;
 		this.fechaIngreso = fechaIngreso;
 		this.visitasEnTerreno = visitasEnTerreno;
+		this.asesorias=asesorias;
 	}
 
-	public Profesional(int id, String nombre, String apellido, String password, String username, List<Rol> roles, String titulo, Date fechaIngreso, List<VisitaTerreno> visitasEnTerreno) {
+	public Profesional(int id, String nombre, String apellido, String password, String username, List<Rol> roles, String titulo, Date fechaIngreso,
+			List<VisitaTerreno> visitasEnTerreno, List<Asesorias> asesorias) {
 		super(id, nombre, apellido, password, username, roles);
 		// TODO Auto-generated constructor stub
 		this.titulo = titulo;
 		this.fechaIngreso = fechaIngreso;
 		this.visitasEnTerreno = visitasEnTerreno;
+		this.asesorias=asesorias;
+		
 	}
 
 	

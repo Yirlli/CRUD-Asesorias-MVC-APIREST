@@ -54,7 +54,7 @@ public class VisitaController {
 		
 		 
 		service.saveVisita(visitaTerreno);
-		return "ListaVisitas";
-	}
+		return "redirect:/ListaVisitas";
+	} 
 	
 }

@@ -20,7 +20,7 @@ import jakarta.persistence.Table;
 @Table(name="visita_terreno")
 public class VisitaTerreno {
 
-	@JsonManagedReference
+	
 	@ManyToOne
     @JoinColumn(name = "profesional_id")
 	@JsonIgnore
