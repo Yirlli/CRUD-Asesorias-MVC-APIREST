@@ -1,78 +1,28 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
+<html>
+<head xmlns:th="http://www.thymeleaf.org">
 <th:block th:replace="fragment/Header :: head"></th:block>
-<title>Crear usuario</title>
+<title>Menu de usuarios</title>
 </head>
 <body>
-	<header>
- 		<th:block th:replace="fragment/Menu :: menu"></th:block>
-	</header>
-	<section class="fondo d-flex  justify-content-center ">
-		<section class="formCapacitacion d-flex flex-column  justify-content-center">
-			<h1>Datos del Usuario</h1>
-			<form th:action="@{/ListaUsuario}" th:object="${usuario}"  method="POST" id="form" >
-				<div class="nombreUsuario">
-					<label class="form-label" for="nombre">Nombre de usuario:</label>
-					<input class="form-control" placeholder="Ingresa su nombre" type="text" name="nombre" th:field="*{nombre}" id="nombreUsuario">
-					<p class="msjError text-danger"></p>
-				</div>
-				<div class="apellidoUsuario">
-					<label class="form-label" for="apellido">Apellido:</label>
-					<input class="form-control" placeholder="Ingresa su apellido" type="text" name="apellido" th:field="*{apellido}" id="apellido">
-					<p class="msjError text-danger"></p>
-				</div>
-				<div class="rutUsuario">
-					<label class="form-label" for="username">RUT:</label>
-					<input class="form-control" placeholder="Ingresa el RUT con guion y digito verificado" type="text" name="username" th:field="*{username}" id="rut">
-					<p class="msjError text-danger"></p>
-				</div>
-				<div class="passwordUsuario">
-					<label class="form-label" for="password">Contraseña:</label>
-					<input class="form-control" placeholder="Ingresa una contraseña" type="password" name="password" th:field="*{password}" id="passwordUsuario">
-					<p class="msjError text-danger"></p>
-				</div>
-				<div class="d-flex flex-column">
-					<label class="form-label">Seleccione el tipo de usuario según su perfil: </label>
-					<select id="tipoUsuario" name="rolNombre" class="form-control">
-						<option th:value="despliegue" selected>Seleccione el rol del usuario</option>	
-						<option th:each="rol : ${T(com.HandSolo.Asesorias.utils.RolNombre).values()}"
-           				 th:value="${rol}" th:text="${rol.nombreRol}"></option>
-					</select>
-					
-				</div>
-				<div class="campoCliente">
-				<!-- -CAMPOS INYECTADOS CON JS PARA EVITAR ENVIAR DATOS NULL O VACIOS -->	
-				</div>
-				
-				<div class="campoProfesional">
-				<!-- -CAMPOS INYECTADOS CON JS PARA EVITAR ENVIAR DATOS NULL O VACIOS -->	
-				</div>
-				
-				<div class="campoAdministrativo">
-				<!-- -CAMPOS INYECTADOS CON JS PARA EVITAR ENVIAR DATOS NULL O VACIOS -->		
-				</div>
-				
-				<div class="d-flex justify-content-center botones mt-5 ">
-					<button class="btn d-none"type="submit" id="btnCrearUsuario">Enviar</button>
-					<button class="btn"type="reset">Borrar</button>
-				
-				</div>
+<header>
+ 	<th:block th:replace="fragment/Menu :: menu"></th:block>
+</header>
+	<section class="fondo d-flex container-fluid vh-100 flex-column">
+		<div class="bg-light-subtle d-flex flex-column justify-content-center align-items-center mt-5 rounded">
+			<h1 class="mt-5">Selecione el tipo de usuario a crear</h1>
 			
-			</form>
-			<div class="volver mb-5 d-flex justify-content-center">
-				<a href="Index.jsp">Volver a página de inicio</a>
-			</div> 
-			
-	
-		</section>
-		
-	</section>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="JS/formUsuario.js"></script>
-	<script src="JS/validarFormCrearUser.js"></script>
+				<div class="d-flex justify-content-center  align-self-center flex-column gap-4 mt-5 mb-5">
+					<button class="btn btn-primary" ><a th:href="@{/CrearAdministrativo}">Administrativo</a></button>
+					<button class="btn btn-secondary "><a th:href="@{/ProfesionalForm}">Profesional</a></button>
+					<button class="btn btn-secondary"><a th:href="@{/ClienteForm}">Cliente</a></button>
 
-	
+				</div>
+		</div>
+		<div class="volver d-flex justify-content-center mt-5 mb-5">
+		<a th:href="@{/}">Volver a página de inicio</a>
+		</div>
+	</section>
+
 </body>
 </html>

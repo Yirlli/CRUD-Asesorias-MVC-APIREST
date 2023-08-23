@@ -3,32 +3,36 @@
 <head>
 <meta charset="UTF-8">
 <th:block th:replace="fragment/Header :: head"></th:block>
-<title>Insert title here</title>
+<title>Pagos</title>
 </head>
 <body>
 <body>
 	<header>
  		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
-	<section class="fondo d-flex  justify-content-center vh-100">
+	<section class="fondo d-flex  justify-content-center ">
 		<section class="formCapacitacion d-flex flex-column  justify-content-center">
-			<h1>Datos de la visita</h1>
-			<form th:action="@{/ListaVisitas}" th:object="${visitaTerreno}"  method="POST" id="form" >
-				<div>
-            		<label for="profesional">Profesional a cargo:</label>
-            		<select id="profesional" name="profesional.id">
-                		<option th:each="profesional : ${listaProfesional}" th:value="${profesional.id}" th:text="${profesional.nombre}"></option>
-            		</select>
-        		</div>
+			<h1>Agregar pago</h1>
+			<form th:action="@{/ListaPago}" th:object="${pago}"  method="POST" id="form" >
+				
         		<div>
-            		<label for="cliente">Cliente:</label>
-            		<select id="cliente" name="cliente.rut">
-                		<option th:each="cliente : ${listaClientes}" th:value="${cliente.rut}" th:text="${cliente.razonSocial}"></option>
+            		<label for="cliente" class="form-label">Cliente:</label>
+            		<select id="cliente" name="cliente" th:field="*{cliente}" class="form-control">
+						<option value="despliegue "selected>Seleccione el nombre del cliente</option>
+						<th:block th:each="cliente : ${listaCliente} ">
+							<option th:value="${cliente.id}" th:text="${cliente.rutCliente}"></option>
+						</th:block>
+                		
             		</select>
         		</div>
-				<div class="fechaAcc">
-      				<label class="form-label" for="fechaAccidente">Fecha de accidente:</label>
-					<input class="form-control" type="date"  name="fechaAccidente" th:field="*{fechaAccidente}" id="fechaAccidente">
+				<div class="fechaPago">
+      				<label class="form-label" for="fechaAccidente">Fecha de importe:</label>
+					<input class="form-control" type="date"  name="fechaPago" th:field="*{fechaPago}" id="fechaPago">
+					<p class="msjError"></p> 
+      			</div>
+      			<div class="monto">
+      				<label class="form-label" for="monto">Monto del pago:</label>
+					<input class="form-control" type="number"  name="monto" th:field="*{monto}" id="monto">
 					<p class="msjError"></p> 
       			</div>
 				
@@ -43,7 +47,7 @@
 			
 			</form>
 			<div class="volver mb-5 d-flex justify-content-center">
-				<a href="Index.jsp">Volver a página de inicio</a>
+				<a class="mt-5" th:href="@{/}">Volver a página de inicio</a>
 			</div> 
 			
 	

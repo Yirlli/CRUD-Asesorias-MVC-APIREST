@@ -3,20 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <th:block th:replace="fragment/Header :: head"></th:block>
-<title>Insert title here</title>
+<title>Visita</title>
 </head>
 <body>
 <body>
 	<header>
  		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
-	<section class="fondo d-flex  justify-content-center vh-100">
+	<section class="fondo d-flex  justify-content-center ">
 		<section class="formCapacitacion d-flex flex-column  justify-content-center">
 			<h1>Datos de la visita</h1>
 			<form th:action="@{/ListaVisitas}" th:object="${visitaTerreno}"  method="POST" id="form" >
 				<div>
-            		<label for="profesional">Profesional a cargo:</label>
-            		<select id="profesional" name="profesional" th:field="*{profesional}">
+            		<label for="profesional" class="form-label">Profesional a cargo:</label>
+            		<select id="profesional" name="profesional" th:field="*{profesional}" class="form-control">
+						<option value="despliegue "selected>Seleccione el nombre del profesional</option>
 						<th:block th:each="profesional : ${listaProfesional}" >
 							<option th:value="${profesional.id}" th:text="${profesional.nombre}"></option>
 						</th:block>
@@ -24,8 +25,9 @@
             		</select>
         		</div>
         		<div>
-            		<label for="cliente">Cliente:</label>
-            		<select id="cliente" name="cliente" th:field="*{cliente}">
+            		<label for="cliente" class="form-label">Cliente:</label>
+            		<select id="cliente" name="cliente" th:field="*{cliente}" class="form-control">
+						<option value="despliegue "selected>Seleccione el nombre del cliente</option>
 						<th:block th:each="cliente : ${listaClientes}">
 							<option th:text="${cliente.razonSocial} " th:value="${cliente.id}"></option>
 						</th:block> 
@@ -49,7 +51,7 @@
 				</div>
 				<div class="comentarios">
 					<label class="form-label" for="password">Comentarios:</label>
-					<input class="form-control" placeholder="Ingrese comentarios de la visita" type="text" name="comentarios" th:field="*{comentarios}" id="comentarios">
+					<textarea class="form-control" placeholder="Ingrese comentarios de la visita" type="text" name="comentarios" th:field="*{comentarios}" id="comentarios"/>
 					<p class="msjError text-danger"></p>
 				</div>
 				
@@ -63,7 +65,7 @@
 			
 			</form>
 			<div class="volver mb-5 d-flex justify-content-center">
-				<a href="Index.jsp">Volver a página de inicio</a>
+				<a class="mt-5" th:href="@{/}">Volver a página de inicio</a>
 			</div> 
 			
 	

@@ -9,7 +9,7 @@
 	<header>
  		<th:block th:replace="fragment/Menu :: menu"></th:block>
 	</header>
-	<section class="fondo d-flex  justify-content-center vh-100">
+	<section class="fondo d-flex  justify-content-center ">
 		<section class="formCapacitacion d-flex flex-column  justify-content-center">
 			<h1>Datos del Usuario</h1>
 			<form th:action="@{/ListaProfesional}" th:object="${profesional}"  method="POST" id="form" >
@@ -60,7 +60,7 @@
 			
 			</form>
 			<div class="volver mb-5 d-flex justify-content-center">
-				<a href="Index.jsp">Volver a página de inicio</a>
+				<a class="mt-5" th:href="@{/}">Volver a página de inicio</a>
 			</div> 
 			
 	

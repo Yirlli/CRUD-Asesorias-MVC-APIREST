@@ -1,10 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<th:block th:replace="fragment/Header :: head"></th:block>
 <title>Insert title here</title>
 </head>
 <body>
+	<header>
+		<th:block th:replace="fragment/Menu :: menu"></th:block>
+	</header>
+<h3 class="text-center p-2">Lista de pagos</h3>
 
+        <section class="fondo d-flex container-fluid justify-content-center p-5 hv-100">
+
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+
+                <div class="container-fluid">
+					<table class="table">
+  						<thead>
+   							<tr>
+      							<th scope="col">Id</th>
+      							<th scope="col">Empresa</th>
+      							<th scope="col">Rut Empresa</th>
+      							<th scope="col">Monto pagado</th>	
+      							<th scope="col">Fecha del pago</th>
+
+      							
+   							</tr>
+  						</thead>
+  						<tbody>
+    						<tr th:each="pago :${listaPago}">
+      							<th scope="row" th:text="${pago.id}">Id</th>
+      							<td th:text="${pago.cliente.razonSocial}">Empresa</td>
+     							<td th:text="${pago.cliente.rutCliente}">RUT Empresa</td>
+      							<td th:text="${pago.monto}">Monto pagado</td>
+      							<td th:text="${pago.fecha}">Fecha del pago</td>
+  
+      							
+    						</tr>
+    						
+  						</tbody>
+					</table>
+
+                </div>
+
+            </div>
+          </section>
+
+	<div class="volver d-flex justify-content-center mb-5">
+		<a class="mt-5" th:href="@{/}"Volver a página de inicio</a>
+	</div>
 </body>
 </html>

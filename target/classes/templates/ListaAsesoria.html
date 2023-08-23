@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<th:block th:replace="fragment/Header :: head"></th:block>
+<title>Lista</title>
+</head>
+<body>
+	<header>
+		<th:block th:replace="fragment/Menu :: menu"></th:block>
+	</header>
+<h3 class="text-center p-2">Lista de Asesorias</h3>
+
+        <section class="fondo d-flex container-fluid justify-content-center p-5 v-100">
+
+            <div class="listCapacitacion d-flex  bg-white rounded-1 p-5 ">
+
+                <div class="container-fluid">
+					<table class="table">
+  						<thead>
+   							<tr>
+      							<th scope="col">Id</th>
+      							<th scope="col">Nombre del Profesional a cargo</th>
+      							<th scope="col">Apellido del Profesional a cargo</th>
+      							<th scope="col">Nombre de la asesoria</th>
+      							<th scope="col">Detalle</th>	
+      						
+
+      							
+   							</tr>
+  						</thead>
+  						<tbody>
+    						<tr th:each="asesoria :${listaAsesoria}">
+								<th  scope="row" th:text="${asesoria.id}">Id</th>
+      							<td th:text="${asesoria.profesional.nombre}">Nombre del Profesional a cargo</td>
+      							<td th:text="${asesoria.profesional.apellido}">Apellido del Profesional a cargo</td>
+     							<td th:text="${asesoria.nombre}">Nombre de la asesoria</td>
+      							<td th:text="${asesoria.detalle}">Detalle</td>
+      						
+  
+      							
+    						</tr>
+    						
+  						</tbody>
+					</table>
+
+                </div>
+
+            </div>
+          </section>
+
+	<div class="volver d-flex justify-content-center mb-5">
+		<a class="mt-5" th:href="@{/}">Volver a página de inicio</a>
+	</div>
+</body>
+</html>
